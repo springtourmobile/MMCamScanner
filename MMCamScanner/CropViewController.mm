@@ -13,6 +13,8 @@
 #define kCameraToolBarHeight 100
 #import "UIColor+HexRepresentation.h"
 #import "MMCropView.h"
+#include "opencv2/imgproc/imgproc_c.h"
+
 
 
 
@@ -336,7 +338,7 @@ void find_squares(cv::Mat& image, std::vector<std::vector<cv::Point>>&squares) {
             }
             
             // Find contours and store them in a list
-            findContours(gray, contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
+            findContours(gray, contours, cv::RETR_LIST, cv::CHAIN_APPROX_SIMPLE);
             
             // Test contours
             std::vector<cv::Point> approx;
